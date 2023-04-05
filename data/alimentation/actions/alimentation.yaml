@@ -111,7 +111,7 @@ alimentation . devenir végétalien:
     une de ces conditions:
       - nombre de plats viande > 0
       - nombre de plats poisson > 0
-      - plats . végétarien . nombre > 0
+  non applicable si: plats . végétalien . nombre = 14
   action:
     dépasse:
       - alimentation . réduire viande . par deux
