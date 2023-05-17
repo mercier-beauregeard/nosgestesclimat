@@ -1,0 +1,220 @@
+streaming:
+  formule:
+    variations:
+      - si: durée > 0
+        alors:
+          somme:
+            - terminaux
+            - transmission
+            - data center
+      - sinon: 0
+  unité: gCO2e
+
+streaming . qualité:
+  titre: Qualité de la vidéo
+  avec:
+    SD:
+    HD:
+    ultra HD:
+      titre: 4K
+  question: Quelle est la qualité de la vidéo ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - SD
+        - HD
+        - ultra HD
+  par défaut: "'HD'"
+
+streaming . qualité . facteur qualité:
+  formule:
+    variations:
+      - si: qualité = 'SD'
+        alors: 0.7
+      - si: qualité = 'HD'
+        alors: 3
+      - si: qualité = 'ultra HD'
+        alors: 7
+  unité: Go/heure
+
+streaming . durée:
+  titre: Temps de visionnage
+  question: Quelle est la durée de la vidéo ?
+  par défaut: 60
+  unité: minute
+
+streaming . durée en heure:
+  titre: Temps de visionnage en heure
+  formule: durée / 60
+  unité: heure
+
+streaming . taille:
+  titre: Taille de la vidéo
+  formule: durée en heure * qualité . facteur qualité
+  unité: Go
+
+streaming . terminaux:
+  formule:
+    somme:
+      - construction
+      - usage
+  unité: gCO2e
+
+streaming . terminaux . construction:
+  formule:
+    recalcul:
+      règle: construction réelle
+      avec:
+        appareil par défaut: appareil
+        durée en heure par défaut: durée en heure
+        moyenne utilisation ordinateur et écran par défaut: appareil . moyenne utilisation ordinateur et écran
+        moyenne utilisation ordinateur portable par défaut: appareil . moyenne utilisation ordinateur portable
+        moyenne utilisation tablette par défaut: appareil . moyenne utilisation tablette
+        moyenne utilisation smartphone par défaut: appareil . moyenne utilisation smartphone
+        moyenne utilisation TV par défaut: appareil . moyenne utilisation TV
+
+streaming . appareil:
+  titre: Appareil utilisé
+  avec:
+    ordinateur et écran:
+      titre: ordinateur fixe
+    ordinateur portable:
+    tablette:
+    smartphone:
+    TV:
+  question: Quel appareil utlisez-vous ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - ordinateur et écran
+        - ordinateur portable
+        - tablette
+        - smartphone
+        - TV
+    par défaut: "'moyenne'" # default value has to be set to make sure rules using "appareil" are defined
+
+streaming . appareil . moyenne utilisation ordinateur et écran: 0%
+streaming . appareil . moyenne utilisation ordinateur portable: 15%
+streaming . appareil . moyenne utilisation tablette: 10%
+streaming . appareil . moyenne utilisation smartphone: 5%
+streaming . appareil . moyenne utilisation TV: 70%
+
+streaming . terminaux . usage:
+  formule:
+    recalcul:
+      règle: usage réel
+      avec:
+        appareil par défaut: appareil
+        durée en heure par défaut: durée en heure
+        moyenne utilisation ordinateur et écran par défaut: appareil . moyenne utilisation ordinateur et écran
+        moyenne utilisation ordinateur portable par défaut: appareil . moyenne utilisation ordinateur portable
+        moyenne utilisation tablette par défaut: appareil . moyenne utilisation tablette
+        moyenne utilisation smartphone par défaut: appareil . moyenne utilisation smartphone
+        moyenne utilisation TV par défaut: appareil . moyenne utilisation TV
+
+streaming . transmission:
+  formule:
+    recalcul:
+      règle: transmission par défaut
+      avec:
+        transmission par défaut . taille par défaut: taille
+        transmission par défaut . réseau par défaut: réseau
+  unité: gCO2e
+
+streaming . transmission . réseau:
+  titre: Type de réseau utilisé
+  avec:
+    fixe FR:
+      titre: Réseau fixe en France
+    mobile FR:
+      titre: Réseau mobile en France
+    fixe EU:
+      titre: Réseau fixe en Europe
+    mobile EU:
+      titre: Réseau mobile en Europe
+  question: Utilisez-vous le réseau fixe ou mobile ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - fixe FR
+        - mobile FR
+        - fixe EU
+        - mobile EU
+  par défaut: "'fixe FR'"
+
+streaming . data center:
+  formule:
+    somme:
+      - construction
+      - usage
+  unité: gCO2e
+
+streaming . data center . construction:
+  formule:
+    recalcul:
+      règle: construction data center
+      avec:
+        construction data center . serveur . facteur d'allocation: facteur d'allocation serveur
+  note: Stockage négligé car divisé entre un nombre très important de visionnage
+
+streaming . data center . construction . facteur d'allocation serveur: nombre de serveurs / nombre d'heures de visionnage par an / serveur . durée de vie
+
+streaming . data center . usage:
+  formule:
+    recalcul:
+      règle: usage data center
+      avec:
+        usage data center . consommation électricité: consommation électricité
+  unité: gCO2e
+
+streaming . data center . usage . consommation électricité:
+  formule: taille * électricité par Go en Wh / 1000
+  unité: kWh
+
+streaming . data center . usage . électricité par Go en Wh:
+  formule: électricité par Go * 1000000
+  unité: Wh/Go
+
+streaming . data center . usage . électricité par Go:
+  formule: (électricité directe consommée par an + électricité indirecte consommée par an) / volume total de transfert de données
+  unité: MWh/Go
+
+streaming . data center . nombre de serveurs:
+  formule: puissance installée avant PUE / serveur . puissance
+
+streaming . data center . volume total de transfert de données:
+  formule: nombre d'heures de visionnage par an * consommation de donnée moyenne par heure de visionnage
+
+streaming . data center . puissance installée avant PUE:
+  formule: (électricité directe consommée par an + électricité indirecte consommée par an) / serveur . PUE streaming * 1000000 / 365 / 24
+
+streaming . électricité directe consommée par an:
+  formule: 94000
+  unité: MWh
+  référence: Netflix Environmental Social Governance 2019
+
+streaming . électricité indirecte consommée par an:
+  formule: 357000
+  unité: MWh
+  référence: Netflix Environmental Social Governance 2019
+
+streaming . consommation de donnée moyenne par heure de visionnage:
+  formule: 1.9
+  unité: Go
+  référence: |
+    "Factcheck: What is the carbon footprint of streaming video on Netflix?" CarbonBrief
+
+streaming . nombre d'utilisateurs par an:
+  formule: 167000000
+  référence: |
+    "Factcheck: What is the carbon footprint of streaming video on Netflix?" CarbonBrief
+
+streaming . nombre d'heures de visionnage par an:
+  formule: 2 * 365 * nombre d'utilisateurs par an
+  note: |
+    On a ici une hypothèse importante: les utilisateurs passeraient 2 heures sur Netflix par jour en moyenne.
+  référence: |
+    "Factcheck: What is the carbon footprint of streaming video on Netflix?" CarbonBrief

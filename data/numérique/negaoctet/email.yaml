@@ -1,0 +1,332 @@
+email:
+  formule:
+    variations:
+      - si:
+          toutes ces conditions:
+            - taille > 0
+            - destinataires > 0
+        alors:
+          somme:
+            - terminaux
+            - transmission
+            - data center
+      - sinon: 0
+  unité: gCO2e
+
+email . taille:
+  titre: Taille de mail
+  question: Quelle est la taille du mail (en Mo)?
+  par défaut: 1
+  unité: Mo
+
+email . taille en Go:
+  formule: taille / 1024
+  unité: Go
+
+email . destinataires:
+  titre: Nombre de destinataires
+  question: Quelle est le nombre de destinataires?
+  par défaut: 1
+
+email . durée stockage mail:
+  titre: Durée de stockage des mails
+  question: Quelle est la durée de stockage du mail ?
+  par défaut: 10
+  unité: an
+  note: on fait l'hypothèse que la durée de stockage coté émetteur et récepteur est la même.
+
+email . redondances sauvegarde émetteur:
+  titre: Nombre de redondances de sauvagardes coté émetteur
+  question: Quelle est le nombre de redondances de sauvagardes émetteur ?
+  par défaut: 3
+  référence: |
+    Analyse comparée des impacts environnementaux de la communication par voie électronique
+    Volet courrier électronique : Rapport final" - BioIS pour l'ADEME, 5 juillet 2011
+
+email . redondances sauvegarde récepteur:
+  titre: Nombre de redondances de sauvagardes coté récepteur
+  question: Quelle est le nombre de redondances de sauvagardes récepteur ?
+  par défaut: 3
+  référence: |
+    Analyse comparée des impacts environnementaux de la communication par voie électronique
+    Volet courrier électronique : Rapport final" - BioIS pour l'ADEME, 5 juillet 2011
+
+email . taux moyen de remplissage du stockage:
+  titre: Taux moyen de remplissage du stockage
+  question: quel est le taux moyen de remplissage du stockage ?
+  par défaut: 50%
+  référence: |
+    Analyse comparée des impacts environnementaux de la communication par voie électronique
+    Volet courrier électronique : Rapport final" - BioIS pour l'ADEME, 5 juillet 2011
+
+email . nombre de mails envoyés et reçus par jour et par personne:
+  titre: Nombre de mails reçus et envoyés par jour et par personne
+  question: Combien de mails envoyés et réçus par jour et par personne ?
+  par défaut: 117.7
+  référence: Email Statistics Report, 2015-2019, The Radicati group
+
+email . terminaux:
+  formule:
+    somme:
+      - construction
+      - usage
+
+email . terminaux . construction:
+  formule:
+    recalcul:
+      règle: construction réelle
+      avec:
+        appareil par défaut: appareil
+        durée en heure par défaut: appareil . durée totale sollicitation
+        moyenne utilisation ordinateur et écran par défaut: appareil . moyenne utilisation ordinateur et écran
+        moyenne utilisation ordinateur portable par défaut: appareil . moyenne utilisation ordinateur portable
+        moyenne utilisation tablette par défaut: appareil . moyenne utilisation tablette
+        moyenne utilisation smartphone par défaut: appareil . moyenne utilisation smartphone
+
+email . appareil:
+  titre: Appareil utilisé
+  avec:
+    ordinateur et écran:
+      titre: ordinateur fixe
+    ordinateur portable:
+    tablette:
+    smartphone:
+  question: Quel appareil utlisez-vous ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - ordinateur et écran
+        - ordinateur portable
+        - tablette
+        - smartphone
+  par défaut: "'moyenne'" #default value has to be set to make sure rules using "appareil" are defined
+
+email . appareil . moyenne utilisation ordinateur et écran: 24%
+email . appareil . moyenne utilisation ordinateur portable: 24%
+email . appareil . moyenne utilisation tablette: 8%
+email . appareil . moyenne utilisation smartphone: 45%
+
+email . appareil . durée totale sollicitation:
+  formule: terminaux . temps écriture en heure + terminaux . temps lecture en heure
+
+email . terminaux . temps écriture:
+  titre: Temps d'écriture du mail
+  question: Quel est le temps d'écriture du mail ?
+  par défaut: 3
+  unité: minute
+
+email . terminaux . temps écriture en heure:
+  formule: temps écriture / 60
+  unité: heure
+
+email . terminaux . pourcentage lecture:
+  titre: Taux de lecture du mail
+  question: Quel est le pourcentage de lecture du mail ?
+  par défaut: 100%
+
+email . terminaux . temps lecture récepteur:
+  titre: Temps de lecture du mail
+  question: Quel est le temps de lecture du mail ?
+  par défaut: 10 / 60
+  unité: minute
+
+email . terminaux . temps lecture total:
+  formule: destinataires * pourcentage lecture * temps lecture récepteur
+  unité: minute
+
+email . terminaux . temps lecture en heure:
+  formule: temps lecture total / 60
+  unité: heure
+
+email . terminaux . usage:
+  formule:
+    recalcul:
+      règle: usage réel
+      avec:
+        appareil par défaut: appareil
+        durée en heure par défaut: appareil . durée totale sollicitation
+        moyenne utilisation ordinateur et écran par défaut: appareil . moyenne utilisation ordinateur et écran
+        moyenne utilisation ordinateur portable par défaut: appareil . moyenne utilisation ordinateur portable
+        moyenne utilisation tablette par défaut: appareil . moyenne utilisation tablette
+        moyenne utilisation smartphone par défaut: appareil . moyenne utilisation smartphone
+
+email . transmission:
+  formule:
+    somme:
+      - émetteur
+      - récepteur
+      - redondances sauvegarde
+  unité: gCO2e
+
+email . transmission . émetteur:
+  formule:
+    recalcul:
+      règle: transmission par défaut
+      avec:
+        transmission par défaut . taille par défaut: taille en Go
+        transmission par défaut . réseau par défaut: réseau
+  unité: gCO2e
+
+email . transmission . émetteur . réseau:
+  titre: Type de réseau utilisé pour l'émission
+  avec:
+    fixe FR:
+      titre: Réseau fixe en France
+    mobile FR:
+      titre: Réseau mobile en France
+    fixe EU:
+      titre: Réseau fixe en Europe
+    mobile EU:
+      titre: Réseau mobile en Europe
+  question: Utilisez-vous le réseau fixe ou mobile ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - fixe FR
+        - mobile FR
+        - fixe EU
+        - mobile EU
+  par défaut: "'fixe FR'"
+
+email . transmission . récepteur:
+  formule:
+    recalcul:
+      règle: transmission par défaut
+      avec:
+        transmission par défaut . taille par défaut: destinataires * taille en Go
+        transmission par défaut . réseau par défaut: réseau
+  unité: gCO2e
+
+email . transmission . récepteur . réseau:
+  titre: Type de réseau utilisé pour le réception
+  avec:
+    fixe FR:
+      titre: Réseau fixe en France
+    mobile FR:
+      titre: Réseau mobile en France
+    fixe EU:
+      titre: Réseau fixe en Europe
+    mobile EU:
+      titre: Réseau mobile en Europe
+  question: Utilisez-vous le réseau fixe ou mobile ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - fixe FR
+        - mobile FR
+        - fixe EU
+        - mobile EU
+  par défaut: "'fixe FR'"
+
+email . transmission . redondances sauvegarde:
+  # formule: (redondances sauvegarde émetteur + destinataires * redondances sauvegarde récepteur) * taille en Go * facteur réseau
+  formule: destinataires * taille en Go * facteur réseau * (1 + redondances sauvegarde émetteur + redondances sauvegarde récepteur)
+  note: Formule peu documentée, non comprise, je pense que ce poste est à précisier/définir
+  unité: Go
+
+email . transmission . redondances sauvegarde . facteur réseau:
+  titre: Facteur réseau transmission sauvegarde
+  formule:
+    variations:
+      - si: réseau = 'fixe FR hors box'
+        alors: transmission par défaut . facteur réseau fixe FR hors box
+      - si: réseau = 'fixe FR hors box'
+        alors: transmission par défaut . facteur réseau fixe EU hors box
+  unité: gCO2e/Go
+
+email . transmission . redondances sauvegarde . réseau:
+  titre: Type de réseau utilisé pour la transmission des sauvegardes
+  avec:
+    fixe FR hors box:
+    fixe EU hors box:
+  question: Utilisez-vous le réseau fixe ou mobile ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - fixe FR hors box
+        - fixe EU hors box
+  par défaut: "'fixe FR hors box'"
+
+email . data center:
+  formule:
+    somme:
+      - construction
+      - usage
+  unité: gCO2e
+
+email . data center . construction:
+  formule:
+    somme:
+      - émetteur
+      - récepteur
+  unité: gCO2e
+
+email . data center . construction . émetteur:
+  formule:
+    recalcul:
+      règle: construction data center
+      avec:
+        construction data center . serveur . facteur d'allocation: data center . construction . émetteur . facteur d'allocation serveur
+        construction data center . stockage . facteur d'allocation: data center . construction . émetteur . facteur d'allocation stockage
+
+email . data center . construction . émetteur . facteur d'allocation serveur:
+  formule: 1 / (serveur . nombre d'utilisateurs par serveur * nombre de mails envoyés et reçus par jour et par personne * 365 * serveur . durée de vie)
+  note: Allocation au nombre de mail par an et par utilisateur, et d'utilisateur par serveur
+
+email . data center . construction . émetteur . facteur d'allocation stockage:
+  formule: taille mails * ratio total
+  note: |
+    Negaoctet : Allocation à la taille de stockage du mail et de ses redondances ramenée à la capacité de stockage
+    Besoin d'explications sur cette formule ..
+
+email . data center . construction . émetteur . facteur d'allocation stockage . taille mails:
+  formule: taille * redondances sauvegarde émetteur
+  unité: Mo
+
+email . data center . construction . émetteur . facteur d'allocation stockage . ratio total:
+  formule: durée stockage mail / (serveur . capacité * taux moyen de remplissage du stockage * stockage . durée de vie)
+
+email . data center . construction . récepteur:
+  formule:
+    recalcul:
+      règle: construction . émetteur
+      avec:
+        data center . construction . émetteur . facteur d'allocation stockage . taille mails: taille * redondances sauvegarde récepteur * destinataires
+
+email . data center . usage:
+  formule:
+    somme:
+      - émetteur
+      - récepteur
+  unité: gCO2e
+
+email . data center . usage . émetteur:
+  formule:
+    recalcul:
+      règle: usage data center
+      avec:
+        usage data center . consommation électricité: consommation électricité réelle
+  unité: gCO2e
+
+email . data center . usage . émetteur . consommation électricité réelle:
+  formule: consommation électricité * serveur . PUE mails / 1000
+  unité: kWh
+
+email . data center . usage . émetteur . consommation électricité:
+  formule: consommation serveur par mail + consommation serveur stockage
+  unité: Wh
+
+email . data center . usage . émetteur . consommation électricité . consommation serveur par mail:
+  formule: serveur . puissance par utilisateur * 24 / nombre de mails envoyés et reçus par jour et par personne
+  unité: Wh
+
+email . data center . usage . émetteur . consommation électricité . consommation serveur stockage:
+  formule: taille * redondances sauvegarde émetteur / (serveur . capacité * taux moyen de remplissage du stockage) * stockage . puissance en mode actif * 24 * 365 * durée stockage mail
+  unité: Wh
+
+email . data center . usage . récepteur:
+  formule: usage . émetteur * destinataires

@@ -1,0 +1,93 @@
+fichier:
+  formule:
+    variations:
+      - si: taille > 0
+        alors:
+          somme:
+            - transmission
+            - data center
+      - sinon: 0
+  unité: gCO2e
+  note: |
+    Les terminaux ne sont pas pris en compte 
+    (hypothèse : le téléchargement / l'upload de fichier se fait en tâche de fond, en même temps que d'autres actions)
+
+fichier . taille:
+  titre: Taille du fichier
+  question: Quelle est la taille du mail (en Go)?
+  par défaut: 1
+  unité: Go
+
+fichier . transmission:
+  formule:
+    recalcul:
+      règle: transmission par défaut
+      avec:
+        transmission par défaut . taille par défaut: taille
+        transmission par défaut . réseau par défaut: réseau
+  unité: gCO2e
+
+fichier . transmission . réseau:
+  titre: Type de réseau utilisé
+  avec:
+    fixe FR:
+      titre: Réseau fixe en France
+    mobile FR:
+      titre: Réseau mobile en France
+    fixe EU:
+      titre: Réseau fixe en Europe
+    mobile EU:
+      titre: Réseau mobile en Europe
+  question: Utilisez-vous le réseau fixe ou mobile ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - fixe FR
+        - mobile FR
+        - fixe EU
+        - mobile EU
+  par défaut: "'fixe FR'"
+
+fichier . data center:
+  formule:
+    somme:
+      - construction
+      - usage
+  unité: gCO2e
+
+fichier . data center . construction:
+  formule:
+    recalcul:
+      règle: construction data center
+      avec:
+        construction data center . serveur . facteur d'allocation: facteur allocation serveur
+        construction data center . stockage . facteur d'allocation: 0
+  note: Stockage non pris en compte, considérant que le fichier peut être partagé par un grand nombre de personnes
+
+fichier . data center . facteur allocation serveur:
+  formule: streaming . data center . nombre de serveurs / streaming . data center . volume total de transfert de données / serveur . durée de vie
+  note: Idem streaming
+
+fichier . data center . usage:
+  formule:
+    recalcul:
+      règle: usage data center
+      avec:
+        usage data center . consommation électricité: consommation électricité
+  unité: gCO2e
+  note: |
+    La quantité de serveur dédié pour l'upload d'un fichier n'étant pas connue, 
+    il a été considéré par hypothèse que celle-ci est similaire à celle de la vidéo en ligne.
+
+fichier . data center . usage . consommation électricité:
+  formule: taille * électricité par Go en Wh / 1000
+  unité: kWh
+
+fichier . data center . usage . électricité par Go en Wh:
+  formule: électricité par Go * 1000000
+  unité: Wh/Go
+
+fichier . data center . usage . électricité par Go:
+  formule: streaming . data center . usage . électricité par Go
+  unité: MWh/Go

@@ -1,0 +1,195 @@
+visio:
+  formule:
+    variations:
+      - si: durée > 0
+        alors:
+          somme:
+            - terminaux
+            - transmission
+            - data center
+      - sinon: 0
+  unité: gCO2e
+
+visio . qualité:
+  avec:
+    audio:
+    SD:
+    HD:
+    ultra HD:
+      titre: 4K
+  titre: qualité de la vidéo
+  question: Quelle est la qualité de la vidéo ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - audio
+        - SD
+        - HD
+        - ultra HD
+  par défaut: "'SD'"
+
+visio . qualité . facteur qualité:
+  formule:
+    variations:
+      - si: qualité = 'audio'
+        alors: 168 / 1024
+      - si: qualité = 'SD'
+        alors: 0.7
+      - si: qualité = 'HD'
+        alors: 3
+      - si: qualité = 'ultra HD'
+        alors: 7
+  unité: Go/heure
+
+visio . durée:
+  titre: Temps de visionnage
+  question: Quelle est la durée de la vidéo ?
+  par défaut: 60
+  unité: minute
+
+visio . durée en heure:
+  formule: durée / 60
+  unité: heure
+
+visio . taille:
+  titre: Taille de la vidéo
+  formule: durée en heure * qualité . facteur qualité
+  unité: Go
+
+visio . emplacements:
+  titre: Nombre d'appareils connectés
+  question: Combien d'appareils sont connectées à la visio ?
+  par défaut: 2
+
+visio . terminaux:
+  formule:
+    somme:
+      - construction
+      - usage
+  unité: gCO2e
+
+visio . appareil . durée totale sollicitation:
+  formule: emplacements * durée en heure
+
+visio . terminaux . construction:
+  formule:
+    recalcul:
+      règle: construction réelle
+      avec:
+        appareil par défaut: appareil
+        durée en heure par défaut: appareil . durée totale sollicitation
+        moyenne utilisation ordinateur et écran par défaut: appareil . moyenne utilisation ordinateur et écran
+        moyenne utilisation ordinateur portable par défaut: appareil . moyenne utilisation ordinateur portable
+        moyenne utilisation tablette par défaut: appareil . moyenne utilisation tablette
+        moyenne utilisation smartphone par défaut: appareil . moyenne utilisation smartphone
+        moyenne utilisation TV par défaut: appareil . moyenne utilisation TV
+
+visio . appareil:
+  titre: Appareil utilisé
+  avec:
+    ordinateur et écran:
+      titre: ordinateur fixe
+    ordinateur portable:
+    tablette:
+    smartphone:
+    TV:
+  question: Quel appareil utlisez-vous ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - ordinateur et écran
+        - ordinateur portable
+        - tablette
+        - smartphone
+        - TV
+    par défaut: "'moyenne'" # default value has to be set to make sure rules using "appareil" are defined
+
+visio . appareil . moyenne utilisation ordinateur et écran: 0%
+visio . appareil . moyenne utilisation ordinateur portable: 100%
+visio . appareil . moyenne utilisation tablette: 0%
+visio . appareil . moyenne utilisation smartphone: 0%
+visio . appareil . moyenne utilisation TV: 0%
+
+visio . terminaux . usage:
+  formule:
+    recalcul:
+      règle: usage réel
+      avec:
+        appareil par défaut: appareil
+        durée en heure par défaut: appareil . durée totale sollicitation
+        moyenne utilisation ordinateur et écran par défaut: appareil . moyenne utilisation ordinateur et écran
+        moyenne utilisation ordinateur portable par défaut: appareil . moyenne utilisation ordinateur portable
+        moyenne utilisation tablette par défaut: appareil . moyenne utilisation tablette
+        moyenne utilisation smartphone par défaut: appareil . moyenne utilisation smartphone
+        moyenne utilisation TV par défaut: appareil . moyenne utilisation TV
+
+visio . transmission:
+  formule:
+    recalcul:
+      règle: transmission par défaut
+      avec:
+        transmission par défaut . taille par défaut: emplacements * taille
+        transmission par défaut . réseau par défaut: réseau
+  unité: gCO2e
+
+visio . transmission . réseau:
+  titre: Type de réseau utilisé
+  avec:
+    fixe FR:
+      titre: Réseau fixe en France
+    mobile FR:
+      titre: Réseau mobile en France
+    fixe EU:
+      titre: Réseau fixe en Europe
+    mobile EU:
+      titre: Réseau mobile en Europe
+  question: Utilisez-vous le réseau fixe ou mobile ?
+  formule:
+    une possibilité:
+      choix obligatoire: oui
+      possibilités:
+        - fixe FR
+        - mobile FR
+        - fixe EU
+        - mobile EU
+  par défaut: "'fixe FR'"
+
+visio . data center:
+  formule:
+    somme:
+      - construction
+      - usage
+  unité: gCO2e
+
+visio . data center . construction:
+  formule:
+    recalcul:
+      règle: construction data center
+      avec:
+        construction data center . serveur . facteur d'allocation: facteur allocation serveur
+  note: |
+    Stockage négligé car pas d'enregistrement considéré.
+    Ici, sont reprises les données issues des études sur le streaming.
+
+visio . data center . facteur allocation serveur:
+  formule: streaming . data center . construction . facteur d'allocation serveur
+  note: Idem streaming
+
+visio . data center . usage:
+  formule:
+    recalcul:
+      règle: usage data center
+      avec:
+        usage data center . consommation électricité: consommation électricité
+  unité: gCO2e
+
+visio . data center . usage . consommation électricité:
+  formule: taille * électricité par Go / 1000
+  unité: kWh
+
+visio . data center . usage . électricité par Go:
+  formule: streaming . data center . usage . électricité par Go
+  unité: Wh/Go
+  note: chiffre issu du streaming ici
