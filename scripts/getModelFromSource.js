@@ -84,6 +84,24 @@ function getRuleToImportInfos(ruleToImport) {
 	return [[ruleToImport, {}]]
 }
 
+function updateImportedRuleDescription(importedRule) {
+	const htmlToAdd = `<div style="display: flex">
+											<span>Ce modèle a été importé depuis</span>&nbsp;
+											<a href="https://github.com/laem/futureco-data" target="blank">
+												<img
+													style="border-radius:0.3rem"
+													src='https://img.shields.io/badge/mod%C3%A8le-futureco--data-%235758bb?style=for-the-badge&logo=github'
+													alt="Static Badge"
+												/>
+											</a>.</div>`
+	if (importedRule.description) {
+		importedRule.description = `${htmlToAdd}${importedRule.description}`
+	} else {
+		importedRule.description = { htmlToAdd }
+	}
+	return importedRule
+}
+
 const removeRawNodeNom = (rawNode, ruleNameToCheck) => {
 	const { nom, ...rest } = rawNode
 	if (nom !== ruleNameToCheck)
@@ -117,6 +135,7 @@ function resolveImports(rules, opts) {
 							!acc.find(([accRuleName, _]) => accRuleName === ruleDepName)
 					)
 					.map(([k, v]) => [k, removeRawNodeNom(v, k)])
+					.map(([k, v]) => [k, updateImportedRuleDescription(v)])
 				acc.push(...ruleDeps)
 			})
 		} else {
