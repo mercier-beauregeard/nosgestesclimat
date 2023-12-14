@@ -1,0 +1,30 @@
+# Ce fichier a été généré automatiquement via le script 'scripts/generate_services_rules.js' dans le dépôt nosgestesclimat.
+# Le fichier permettant de modifier les données importantes de répartition et justification des services sociétaux
+# est 'scripts/services-societaux/input/répartition_services_sociétaux.yaml'. Pour en savoir plus, n'hésitez pas à parcourir notre guide !
+
+services publics:
+  abréviation: S. publics
+  couleur: '#0c2461'
+  description: |-
+    Les services publics ne sont qu'une partie des [services sociétaux](https://nosgestesclimat.fr/documentation/services-soci%C3%A9taux) dont le calcul est basé sur
+    [l'estimation de l'empreinte nationale française par le Ministère de l'Écologie](https://www.statistiques.developpement-durable.gouv.fr/lempreinte-carbone-de-la-france-de-1995-2021).
+  formule:
+    somme:
+      - empreinte branche . C21 par hab . services publics
+      - empreinte branche . E36 par hab . services publics
+      - empreinte branche . E37 par hab . services publics
+      - empreinte branche . E38 par hab . services publics
+      - empreinte branche . E39 par hab . services publics
+      - empreinte branche . F42 par hab . services publics
+      - empreinte branche . F43 par hab . services publics
+      - empreinte branche . M71 par hab . services publics
+      - empreinte branche . M72 par hab . services publics
+      - empreinte branche . N78 par hab . services publics
+      - empreinte branche . O84 par hab . services publics
+      - empreinte branche . P85 par hab . services publics
+      - empreinte branche . Q86 par hab . services publics
+      - empreinte branche . Q87 par hab . services publics
+      - empreinte branche . Q88 par hab . services publics
+  icônes: 🏛
+  titre: Services publics
+  unité: kgCO2e

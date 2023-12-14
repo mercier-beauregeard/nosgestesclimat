@@ -4,16 +4,16 @@ about: Posez une question ou suggérez une amélioration
 title: ''
 labels: contribution
 assignees: ''
-
 ---
 
-## Poser une question 
+> ⚠️ Avant de créer une issue, lisez attentivement [notre FAQ](https://nosgestesclimat.fr/questions-frequentes) qui explicite un bon nombre des limites du test nosgestesclimat.fr.
 
-*Décrivez ici le problème que vous avez eu, l'amélioration que vous souhaitez proposer, ou toute autre question ici.*
+## Poser une question
 
-## Proposer une amélioration 
+_Décrivez ici le problème que vous avez eu, l'amélioration que vous souhaitez proposer, ou toute autre question ici._
 
-*Si vous avez une idée précise de votre amélioration, vous pouvez directement suivre [ce guide de contribution](https://github.com/datagir/nosgestesclimat/blob/master/CONTRIBUTING.md)*
+## Proposer une amélioration
+
+_Si vous avez une idée précise de votre amélioration, vous pouvez directement suivre [ce guide de contribution](https://github.com/datagir/nosgestesclimat/blob/master/CONTRIBUTING.md)_
 
 N'hésitez pas à inclure des chiffres, des sources, des articles de presse, une ébauche de calcul par vos soins etc.
-
