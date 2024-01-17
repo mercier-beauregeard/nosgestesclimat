@@ -41,7 +41,7 @@ transport . ferry:
   formule:
     variations:
       - si:
-          est défini: usager
+          est défini: usager ferry
         alors: empreinte
       - sinon: empreinte moyenne
   unité: kgCO2e
@@ -58,7 +58,7 @@ transport . ferry . empreinte:
       - 2 personnes partagent la cabine, la voiture
       - Modèle de ferry considéré (plan, vitesse moyenne) : [Méga Express Four](https://www.greenferries.org/ships/mega-express-four-9086590/)
 
-transport . ferry . usager:
+transport . usager ferry:
   question: Prenez-vous le ferry ?
   description: |
     Répondez oui si vous prenez le ferry par exemple pour vous rendre sur les îles ou continents voisins (Corse, Royaume-Uni, Maghreb...).
@@ -74,7 +74,7 @@ transport . ferry . empreinte moyenne:
     recalcul:
       règle: ferry . empreinte
       avec:
-        usager: oui
+        usager ferry: oui
         heures: durée moyenne par français
 
 transport . ferry . empreinte moyenne . durée moyenne par français:
@@ -91,7 +91,6 @@ transport . ferry . empreinte moyenne . durée moyenne par français:
     On fait donc une hypothèse forte ici en estimant que 10 millions de français voyagent en ferry chaque année pour une durée moyenne de 8 heures.
 
 transport . ferry . heures:
-  applicable si: usager
   titre: Heures de ferry dans l'année
   question: Combien d'heures par an voyagez-vous en ferry ou croisière ?
   description: |

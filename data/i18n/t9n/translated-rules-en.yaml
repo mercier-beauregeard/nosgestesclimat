@@ -25687,7 +25687,7 @@ transport . deux roues . empreinte moyenne:
   titre: average footprint
   titre.auto: average footprint
   titre.lock: empreinte moyenne
-transport . ferry . usager:
+transport . usager ferry:
   titre: user
   titre.auto: user
   titre.lock: usager

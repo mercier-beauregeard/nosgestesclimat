@@ -227,7 +227,7 @@ transport . voiture . construction . barème hybride:
 transport . voiture . durée de vie:
   formule: 17
   note: We use the emission factor from the Mobitool platform - https://www.mobitool.ch/fr/outils/facteurs-mobitool-v2-1-25.html
-transport . ferry . usager:
+transport . usager ferry:
   par défaut: non
 transport . ferry . heures:
   suggestions:

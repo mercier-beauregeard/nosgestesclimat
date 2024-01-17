@@ -249,7 +249,7 @@ transport . voiture . durée de vie:
   formule: 17
   note: Nous utilisons le facteur d'émission provenant de la plateforme Mobitool - https://www.mobitool.ch/fr/outils/facteurs-mobitool-v2-1-25.html
 
-transport . ferry . usager:
+transport . usager ferry:
   par défaut: non
 
 transport . ferry . heures:
