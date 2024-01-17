@@ -17911,7 +17911,7 @@ transport . avion . moyen courrier . vitesse moyenne:
   titre: average speed
   titre.auto: average speed
   titre.lock: vitesse moyenne
-transport . avion . usager:
+transport . usager avion:
   description: |
     We've chosen to offer you a way of counting the impact of your air travel over several years. The footprint on the climate is such that it's important to take this into account.
 

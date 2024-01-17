@@ -47,7 +47,7 @@ transport . deux roues . empreinte moyenne:
         deux roues . usager: oui
         deux roues . type: "'moto sup 250'"
         deux roues . km: 400
-transport . avion . usager:
+transport . usager avion:
   description: |
     We have chosen to offer you a way of counting the impact of your air travel over several years. 
     The impact on the climate is such that it's important to take this into account. 

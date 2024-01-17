@@ -34,7 +34,7 @@ personas . yoram:
     alimentation . plats . végétarien . nombre: 0
     alimentation . plats . poisson 1 . nombre: 0
     alimentation . plats . poisson 2 . nombre: 0
-    transport . avion . usager: non
+    transport . usager avion: non
     transport . ferry . usager: non
     transport . vacances . camping car . propriétaire: non
     transport . vacances . caravane . propriétaire: non
@@ -387,7 +387,7 @@ personas . corentin:
     # logement . vacances . résidence secondaire . durée . nuités week end . nombre
     # logement . vacances . résidence secondaire . durée . nuités semaine . nombre
     # logement . vacances . résidence secondaire . saison
-    transport . avion . usager: non
+    transport . usager avion: non
     transport . mobilité douce . vélo . présent: oui
     transport . voiture . km: 200
     transport . voiture . utilisateur régulier: non
@@ -540,7 +540,7 @@ personas . sandy:
     transport . vacances . camping car . propriétaire: non
     transport . vacances . van . propriétaire: non
     transport . deux roues . usager: non
-    transport . avion . usager: non
+    transport . usager avion: non
     transport . bus . heures par semaine: 0
     transport . train . km: 0
     transport . métro ou tram . heures par semaine: 0
@@ -677,7 +677,7 @@ personas . mehdi:
     transport . voiture . motorisation: "'électrique'"
     transport . voiture . saisie voyageurs: 1.7
     transport . deux roues . usager: non
-    transport . avion . usager: oui
+    transport . usager avion: oui
     transport . avion . court courrier . heures de vol: 0
     transport . avion . moyen courrier . heures de vol: 0
     transport . avion . long courrier . heures de vol: 20
@@ -893,7 +893,7 @@ personas . sylviane:
     transport . voiture . motorisation: "'thermique'"
     transport . voiture . thermique . consommation aux 100: 8
     transport . deux roues . usager: non
-    transport . avion . usager: non
+    transport . usager avion: non
     transport . bus . heures par semaine: 0
     transport . train . km: 0
     transport . métro ou tram . heures par semaine: 0
@@ -1112,7 +1112,7 @@ personas . jessica:
     transport . deux roues . usager: oui
     transport . deux roues . type: "'thermique'"
     transport . deux roues . km: 4000
-    transport . avion . usager: oui
+    transport . usager avion: oui
     transport . avion . court courrier . heures de vol: 4
     transport . avion . moyen courrier . heures de vol: 6
     transport . avion . long courrier . heures de vol: 0
@@ -1324,7 +1324,7 @@ personas . nolan:
     transport . voiture . véhicule récent: oui
     transport . voiture . motorisation: "'thermique'"
     transport . voiture . thermique . consommation aux 100: 6
-    transport . avion . usager: non
+    transport . usager avion: non
     transport . bus . heures par semaine: 6
     transport . train . km: 1000
     transport . métro ou tram . heures par semaine: 2
@@ -1609,7 +1609,7 @@ personas . anne claire:
     transport . voiture . motorisation: "'hybride'"
     transport . voiture . thermique . consommation aux 100: 5
     transport . deux roues . usager: non
-    transport . avion . usager: oui
+    transport . usager avion: oui
     transport . avion . court courrier . heures de vol: 3
     transport . avion . moyen courrier . heures de vol: 0
     transport . avion . long courrier . heures de vol: 14
@@ -1754,7 +1754,7 @@ personas . gerard:
     # alimentation . déchets . gestes . gaspillage alimentaire . présent
     # alimentation . déchets . gestes . stop pub . présent
     # alimentation . déchets . gestes . acheter en vrac . présent
-    transport . avion . usager: oui
+    transport . usager avion: oui
     transport . avion . court courrier . heures de vol: 3
     transport . avion . moyen courrier . heures de vol: 0
     transport . avion . long courrier . heures de vol: 0

@@ -2,8 +2,8 @@ transport . arrêter l'avion:
   icônes: 🛬🧳
   applicable si:
     toutes ces conditions:
-      - est défini: avion . usager
-      - avion . usager
+      - est défini: usager avion
+      - usager avion
   action:
     dépasse:
       - transport . arrêter l'avion court
@@ -42,8 +42,8 @@ transport . arrêter l'avion court:
   icônes: 🛬🚆
   applicable si:
     toutes ces conditions:
-      - est défini: avion . usager
-      - avion . usager
+      - est défini: usager avion
+      - usager avion
   formule: transport . avion . court courrier + compensation train
   # Mettre histogramme GES qui compare les trajets train vs avion.
   description: |
@@ -75,8 +75,8 @@ transport . prendre moins l'avion:
   icônes: 📉🛬
   applicable si:
     toutes ces conditions:
-      - est défini: avion . usager
-      - avion . usager
+      - est défini: usager avion
+      - usager avion
   action:
     dépasse:
       - transport . arrêter l'avion court
