@@ -432,7 +432,7 @@ logement . électricité . consommation:
     Tip: you can find your annual electricity consumption on your bills or in your online account on the SIG website.
 
     If you live in several homes (for example, if you have a second home), try to "reduce" your consumption to that of your main home to get the most accurate estimate possible.
-logement . climatisation . présent:
+logement . climatisation présent:
   question: Do you use an air conditioning system to cool your home (electric air conditioner, heat pump)?
   description: |
     Do you have air conditioning? Its electricity consumption will simply be included in the electricity bill, like all the electrical appliances in the home. Refrigerant gas leaks are taken into account here.

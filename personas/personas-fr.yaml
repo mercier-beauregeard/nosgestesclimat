@@ -84,7 +84,7 @@ personas . yoram:
     logement . propriétaire: non
     logement . chauffage collectif: non
     logement . chauffage . bois . présent: non
-    logement . climatisation . présent: non
+    logement . climatisation présent: non
     logement . électricité . consommation: 4000
     logement . chauffage . réseau de chaleur . présent: non
     logement . chauffage . PAC . présent: non
@@ -326,7 +326,7 @@ personas . corentin:
     divers . loisirs . sports . sports énergivores . présent: non
     logement . surface: 25
     logement . saisie habitants: 1
-    logement . climatisation . présent: non
+    logement . climatisation présent: non
     logement . chauffage . PAC . présent: non
     logement . chauffage . fioul . présent: non
     logement . chauffage . bois . présent: non
@@ -467,7 +467,7 @@ personas . sandy:
     # alimentation . de saison . consommation:
     logement . surface: 105
     logement . saisie habitants: 3
-    logement . climatisation . présent: non
+    logement . climatisation présent: non
     logement . chauffage . PAC . présent: non
     logement . chauffage . fioul . présent: non
     logement . chauffage . bois . présent: non
@@ -758,7 +758,7 @@ personas . mehdi:
     # logement . chauffage . bois . type . granulés . consommation . estimation via le coûtprop
     # logement . chauffage . bois . type . bûches . consommation
     # logement . chauffage . bois . type . bûches . consommation . estimation via le coût
-    # logement . climatisation . présent
+    # logement . climatisation présent
     # logement . climatisation . nombre
     # logement . électricité . estimation via le coût
     # logement . chauffage . réseau de chaleur . estimation via le prix
@@ -932,7 +932,7 @@ personas . sylviane:
     logement . appartement: non
     logement . surface: 110
     logement . saisie habitants: 1
-    logement . climatisation . présent: non
+    logement . climatisation présent: non
     logement . électricité . consommation: 5000
     logement . chauffage . PAC . présent: non
     logement . chauffage . fioul . présent: oui
@@ -1149,7 +1149,7 @@ personas . jessica:
     logement . appartement: oui
     logement . surface: 40
     logement . saisie habitants: 1
-    logement . climatisation . présent: non
+    logement . climatisation présent: non
     logement . électricité . consommation: 3000
     logement . chauffage . PAC . présent: non
     logement . chauffage . fioul . présent: non
@@ -1364,7 +1364,7 @@ personas . nolan:
     logement . appartement: oui
     logement . surface: 120
     logement . saisie habitants: 4
-    logement . climatisation . présent: oui
+    logement . climatisation présent: oui
     logement . électricité . consommation: 3000
     logement . chauffage . PAC . présent: non
     logement . chauffage . fioul . présent: non
@@ -1552,7 +1552,7 @@ personas . anne claire:
     # logement . vacances . résidence secondaire . durée . nuités week end . nombre
     # logement . vacances . résidence secondaire . durée . nuités semaine . nombre
     # logement . vacances . résidence secondaire . saison
-    logement . climatisation . présent: oui
+    logement . climatisation présent: oui
     logement . climatisation . nombre: 1
     logement . chauffage . PAC . présent: oui
     logement . chauffage . fioul . présent: non
@@ -1838,7 +1838,7 @@ personas . gerard:
     # logement . chauffage . bois . type . granulés . consommation . estimation via le coût
     # logement . chauffage . bois . type . bûches . consommation
     # logement . chauffage . bois . type . bûches . consommation . estimation via le coût
-    # logement . climatisation . présent
+    # logement . climatisation présent
     # logement . climatisation . nombre
     # logement . électricité . estimation via le coût
     # logement . chauffage . réseau de chaleur . estimation via le prix

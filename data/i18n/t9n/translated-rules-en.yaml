@@ -16018,7 +16018,7 @@ logement . climatisation . nombre:
   titre: number
   titre.auto: number
   titre.lock: nombre
-logement . climatisation . présent:
+logement . climatisation présent:
   description: |
     The air conditioner uses electricity, which you have to enter in kWh or € in the electricity question. The footprint of the electricity consumed by the air conditioner is therefore already calculated
 
