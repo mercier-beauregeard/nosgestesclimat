@@ -8,7 +8,7 @@ importer!:
     - piscine . traitement chimique
     - piscine . construction
     - piscine . surface:
-        applicable si: piscine . présent
+        applicable si: piscine présent
         question: Quelle est la taille de votre piscine ?
         description: |
           💡 Pensez à prendre en compte **les consommations d'énergie de la piscine dans celles de votre logement**. Votre facture devrait d'ailleurs être fortement impactée si votre piscine est chauffée !
@@ -31,8 +31,8 @@ logement . piscine:
     variations:
       - si:
           toutes ces conditions:
-            - est défini: piscine . présent
-            - piscine . présent
+            - est défini: piscine présent
+            - piscine présent
         alors: empreinte / habitants
       - sinon: 0
   # @Clément: Pour le moment, pas de valeur par défaut représentative pour la piscine.
@@ -43,7 +43,7 @@ logement . piscine:
 
     Ce sont les travaux de construction, d'entretien, d'achat du matériel divers nécessaire (sureté, gestion de l'eau, produits chimiques sanitaires), et de chauffage qui sont les plus impactants pour le climat.
 
-logement . piscine . présent:
+logement . piscine présent:
   question: Votre logement dispose-t-il d'une piscine privée (enterrée/creusée) ?
   description: |
     Il est question ici de piscine privées **enterrées**, et non de piscines hors-sol, dont l'empreinte carbone est bien inférieure. Cette option sera néanmoins disponible prochainement !

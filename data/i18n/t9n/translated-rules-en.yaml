@@ -23172,7 +23172,7 @@ logement . piscine . correcteur surface type:
   description: '> ℹ️ This rule comes from the <a href="https://github.com/laem/futureco-data">`futureco-data`</a> model.'
   description.auto: '> ℹ️ This rule comes from the <a href="https://github.com/laem/futureco-data">`futureco-data`</a> model.'
   description.lock: '> ℹ️ Cette règle provient du modèle [`futureco-data`](https://github.com/laem/futureco-data).'
-logement . piscine . présent:
+logement . piscine présent:
   titre: present
   titre.auto: present
   titre.lock: présent

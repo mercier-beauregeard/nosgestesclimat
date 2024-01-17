@@ -93,7 +93,7 @@ personas . yoram:
     logement . chauffage . gaz . présent: non
     logement . chauffage . bouteille gaz . présent: non
     logement . chauffage . citerne propane . présent: non
-    logement . piscine . présent: non
+    logement . piscine présent: non
     logement . vacances . hotel . présent: non
     logement . vacances . camping . présent: oui
     logement . vacances . camping . nombre de nuitées: 14
@@ -369,7 +369,7 @@ personas . corentin:
     # logement . chauffage . bouteille gaz . estimation via le poids
     # logement . chauffage . citerne propane . consommation
     # logement . chauffage . citerne propane . estimation via le coût
-    # logement . piscine . présent
+    # logement . piscine présent
     # logement . piscine . surface
     # logement . vacances . camping . nombre de nuitées
     # logement . vacances . auberge de jeunesse . nombre de nuitées
@@ -521,7 +521,7 @@ personas . sandy:
     # logement . chauffage . bouteille gaz . estimation via le poids
     # logement . chauffage . citerne propane . consommation
     # logement . chauffage . citerne propane . estimation via le coût
-    logement . piscine . présent: non
+    logement . piscine présent: non
     # logement . piscine . surface
     # logement . vacances . hotel . nombre de nuitées
     # logement . vacances . auberge de jeunesse . nombre de nuitées
@@ -740,7 +740,7 @@ personas . mehdi:
     logement . vacances . résidence secondaire . durée . nuités week end . nombre: 0
     logement . vacances . résidence secondaire . durée . nuités semaine . nombre: 3
     logement . vacances . résidence secondaire . saison: "'surtout hiver'"
-    logement . piscine . présent: oui
+    logement . piscine présent: oui
     logement . piscine . surface: 40
     logement . extérieur . salon de jardin bois . présent: oui
     logement . extérieur . salon de jardin résine ou métal . présent: non
@@ -978,7 +978,7 @@ personas . sylviane:
     # logement . chauffage . bouteille gaz . estimation via le poids
     # logement . chauffage . citerne propane . consommation
     # logement . chauffage . citerne propane . estimation via le coût
-    # logement . piscine . présent
+    # logement . piscine présent
     # logement . piscine . surface
     # logement . vacances . hotel . nombre de nuitées
     # logement . vacances . camping . nombre de nuitées
@@ -1197,7 +1197,7 @@ personas . jessica:
     # logement . chauffage . bouteille gaz . estimation via le poids
     # logement . chauffage . citerne propane . consommation
     # logement . chauffage . citerne propane . estimation via le coût
-    # logement . piscine . présent
+    # logement . piscine présent
     # logement . piscine . surface
     # logement . vacances . camping . nombre de nuitées
     # logement . vacances . locations . nombre de nuitées
@@ -1409,7 +1409,7 @@ personas . nolan:
     # logement . chauffage . bouteille gaz . estimation via le poids
     # logement . chauffage . citerne propane . consommation
     # logement . chauffage . citerne propane . estimation via le coût
-    # logement . piscine . présent
+    # logement . piscine présent
     # logement . piscine . surface
     # logement . vacances . hotel . nombre de nuitées
     # logement . vacances . camping . nombre de nuitées
@@ -1591,7 +1591,7 @@ personas . anne claire:
     # logement . chauffage . bouteille gaz . estimation via le poids
     # logement . chauffage . citerne propane . consommation
     # logement . chauffage . citerne propane . estimation via le coût
-    # logement . piscine . présent
+    # logement . piscine présent
     # logement . piscine . surface
     # logement . vacances . camping . nombre de nuitées
     # logement . vacances . auberge de jeunesse . nombre de nuitées
@@ -1851,7 +1851,7 @@ personas . gerard:
     # logement . chauffage . bouteille gaz . estimation via le poids
     # logement . chauffage . citerne propane . consommation
     # logement . chauffage . citerne propane . estimation via le coût
-    # logement . piscine . présent
+    # logement . piscine présent
     # logement . piscine . surface
     # logement . vacances . camping . nombre de nuitées
     # logement . vacances . auberge de jeunesse . nombre de nuitées
