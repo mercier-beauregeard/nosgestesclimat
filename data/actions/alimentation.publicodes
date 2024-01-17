@@ -252,8 +252,8 @@ alimentation . manger de saison . recalcul:
 alimentation . boisson . eau en bouteille . arrêter:
   applicable si:
     toutes ces conditions:
-      - est défini: consommateur
-      - consommateur
+      - est défini: consommateur eau en bouteille
+      - consommateur eau en bouteille
   titre: Arrêter l'eau en bouteille
   formule: consommation annuelle * empreinte
   icônes: ➡️🚰

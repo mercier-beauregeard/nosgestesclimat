@@ -25638,7 +25638,7 @@ transport . deux roues . pourcentage motards:
   titre: percentage of motorcyclists
   titre.auto: percentage of motorcyclists
   titre.lock: pourcentage motards
-alimentation . boisson . eau en bouteille . consommateur:
+alimentation . boisson . consommateur eau en bouteille:
   titre: consumer
   titre.auto: consumer
   titre.lock: consommateur

@@ -25,7 +25,7 @@ personas . yoram:
     alimentation . type de lait: "'lait de soja'"
     alimentation . boisson . sucrées . litres: 0.3
     alimentation . boisson . alcool . litres: 1
-    alimentation . boisson . eau en bouteille . consommateur: non
+    alimentation . boisson . consommateur eau en bouteille: non
     alimentation . local . consommation: "'oui toujours'"
     alimentation . de saison . consommation: "'oui toujours'"
     alimentation . plats . végétalien . nombre: 14
@@ -227,7 +227,7 @@ personas . corentin:
   icônes: 👨‍🎓🛵
   situation:
     alimentation . type de lait: "'lait de vache'"
-    alimentation . boisson . eau en bouteille . consommateur: non
+    alimentation . boisson . consommateur eau en bouteille: non
     alimentation . boisson . sucrées . litres: 1
     alimentation . boisson . alcool . litres: 2
     alimentation . plats . végétalien . nombre: 5
@@ -456,7 +456,7 @@ personas . sandy:
     alimentation . boisson . chaude . thé . nombre: 7
     alimentation . boisson . chaude . chocolat chaud . nombre: 0
     alimentation . boisson . chaude . chicorée . nombre: 0
-    alimentation . boisson . eau en bouteille . consommateur: oui
+    alimentation . boisson . consommateur eau en bouteille: oui
     alimentation . plats . viande 2 . nombre: 8
     alimentation . plats . viande 1 . nombre: 0
     alimentation . plats . poisson 1 . nombre: 1
@@ -652,7 +652,7 @@ personas . mehdi:
     alimentation . petit déjeuner . type: "'continental'"
     alimentation . boisson . sucrées . litres: 0
     alimentation . boisson . alcool . litres: 2
-    alimentation . boisson . eau en bouteille . consommateur: non
+    alimentation . boisson . consommateur eau en bouteille: non
     alimentation . plats . viande 2 . nombre: 7
     alimentation . plats . viande 1 . nombre: 7
     alimentation . plats . végétarien . nombre: 0
@@ -871,7 +871,7 @@ personas . sylviane:
     alimentation . petit déjeuner . type: "'continental'"
     alimentation . boisson . sucrées . litres: 0
     alimentation . boisson . alcool . litres: 0.5
-    alimentation . boisson . eau en bouteille . consommateur: non
+    alimentation . boisson . consommateur eau en bouteille: non
     alimentation . plats . viande 2 . nombre: 3
     alimentation . plats . viande 1 . nombre: 2
     alimentation . plats . végétarien . nombre: 8
@@ -1088,7 +1088,7 @@ personas . jessica:
     alimentation . petit déjeuner . type: "'aucun'"
     alimentation . boisson . sucrées . litres: 0
     alimentation . boisson . alcool . litres: 1.5
-    alimentation . boisson . eau en bouteille . consommateur: non
+    alimentation . boisson . consommateur eau en bouteille: non
     alimentation . plats . viande 2 . nombre: 5
     alimentation . plats . viande 1 . nombre: 0
     alimentation . plats . végétarien . nombre: 8
@@ -1302,7 +1302,7 @@ personas . nolan:
     alimentation . petit déjeuner . type: "'britannique'"
     alimentation . boisson . sucrées . litres: 0
     alimentation . boisson . alcool . litres: 0 #(officiellement)
-    alimentation . boisson . eau en bouteille . consommateur: non
+    alimentation . boisson . consommateur eau en bouteille: non
     alimentation . plats . viande 2 . nombre: 5
     alimentation . plats . viande 1 . nombre: 3
     alimentation . plats . végétarien . nombre: 5
@@ -1528,7 +1528,7 @@ personas . anne claire:
     # alimentation . boisson . chaude . thé . nombre
     # alimentation . boisson . chaude . chocolat chaud . nombre
     alimentation . type de lait: "'lait d'avoine'"
-    # alimentation . boisson . eau en bouteille . consommateur
+    # alimentation . boisson . consommateur eau en bouteille
     # alimentation . boisson . sucrées . litres
     # alimentation . boisson . alcool . litres
     # alimentation . boisson . chaude . chicorée . nombre
@@ -1737,7 +1737,7 @@ personas . gerard:
     alimentation . type de lait: "'lait de vache'"
     alimentation . boisson . sucrées . litres: 1
     alimentation . boisson . alcool . litres: 3
-    alimentation . boisson . eau en bouteille . consommateur: oui
+    alimentation . boisson . consommateur eau en bouteille: oui
     alimentation . plats . viande 2 . nombre: 9
     alimentation . plats . viande 1 . nombre: 5
     alimentation . plats . végétarien . nombre: 0
