@@ -46,7 +46,7 @@ transport . deux roues . empreinte moyenne:
     recalcul:
       règle: deux roues . empreinte
       avec:
-        deux roues . usager: oui
+        usager deux roues: oui
         deux roues . type: "'moto sup 250'"
         deux roues . km: 400
 # @Clement: note: Source manquante ?

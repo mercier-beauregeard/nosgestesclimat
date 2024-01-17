@@ -3,18 +3,18 @@ transport . deux roues:
   formule:
     variations:
       - si:
-          est défini: usager
+          est défini: usager deux roues
         alors: empreinte
       - sinon: empreinte moyenne
   unité: kgCO2e
 
-transport . deux roues . usager:
+transport . usager deux roues:
   question: Utilisez-vous un deux-roues motorisé ?
   description: |
     Les scooters et motos sont aujourd'hui très majoritairement des engins qui fonctionnent au pétrole. Les scooters électriques ayant fait une réelle percée, ils sont ajoutés au modèle.
 
 transport . deux roues . empreinte:
-  applicable si: usager
+  applicable si: usager deux roues
   icônes: 🛵
   formule: (empreinte au km + entretien pondéré) * km
   unité: kgCO2e
@@ -24,7 +24,7 @@ transport . deux roues . empreinte moyenne:
     recalcul:
       règle: deux roues . empreinte
       avec:
-        deux roues . usager: oui
+        usager deux roues: oui
         deux roues . type: "'moto sup 250'"
         deux roues . km: km annuels moyen * pourcentage motards
 
@@ -46,7 +46,6 @@ transport . deux roues . km annuels moyen:
     Source pour les km annuels moyens : [datalab ministère écologie 2019](https://www.statistiques.developpement-durable.gouv.fr/bilan-annuel-des-transports-en-2019-0), figure G1-1.
 
 transport . deux roues . type:
-  applicable si: usager
   question: Quel type de deux-roues utilisez-vous ?
   par défaut: "'moto sup 250'"
   formule:
