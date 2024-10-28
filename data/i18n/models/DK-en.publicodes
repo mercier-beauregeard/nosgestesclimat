@@ -1,0 +1,40 @@
+params:
+  code: DK
+  nom: Denmark
+  gentilé: Danish
+commun . intensité électricité:
+  titre: Carbon intensity of the Danish electricity mix
+  formule: 0.360
+  note: |
+    base de données ADEME
+    [Electricity Map](https://app.electricitymaps.com/map) view 5 years, 2022
+transport . avion . court courrier . heures de vol:
+  suggestions:
+    🚫✈️: 0
+    Copenhagen ⇄ Berlin: 1.8
+    Copenhagen ⇄ Aalboorg: 1.5
+    Copenhagen ⇄ Stokholm: 2.4
+    Copenhagen ⇄ Bergen: 2.4
+    Copenhagen ⇄ Brussel: 3
+  transport . avion . moyen courrier . heures de vol:
+  suggestions:
+    🚫✈️: 0
+   Copenhagen ⇄ Tromso: 5
+   Copenhagen ⇄ Paris: 4
+   Copenhagen ⇄ Napoly: 5.2
+transport . avion . long courrier . heures de vol:
+  suggestions:
+    🚫✈️: 0
+  Copenhagen ⇄ Lanzarote: 10.5
+  Copenhagen ⇄ New York: 17
+  Copenhagen ⇄ Los Angeles: 22.5
+  Copenhagen ⇄ Tokyo: 24
+  Copenhagen ⇄ Dubaï: 13
+transport . train . km:
+  suggestions:
+    crossing of a region: 300
+    Copenhagen ⇄ Aalborg: 600
+    Copenhagen ⇄ Berlin: 900
+    Copenhagen ⇄ Paris: 3000
+    💳 great traveler: 10000
+    💳 great traveler plus ultra: 25000

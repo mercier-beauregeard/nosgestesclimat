@@ -1,0 +1,40 @@
+params:
+  code: DK
+  nom: Danemark
+  gentilé: Danois
+commun . intensité électricité:
+  titre: Intensité carbone du mix électrique danoise
+  formule: 0.360
+  note: |
+    base de données ADEME
+    [Electricity Map](https://app.electricitymaps.com/map) view 5 years, 2022
+transport . avion . court courrier . heures de vol:
+  suggestions:
+    🚫✈️: 0
+    Copenhage ⇄ Berlin: 1.8
+    Copenhage ⇄ Aalboorg: 1.5
+    Copenhage ⇄ Stokholm: 2.4
+    Copenhage ⇄ Bergen: 2.4
+    Copenhage ⇄ Bruxelle: 3
+  transport . avion . moyen courrier . heures de vol:
+  suggestions:
+    🚫✈️: 0
+   Copenhage ⇄ Tromso: 5
+   Copenhage ⇄ Paris: 4
+   Copenhage ⇄ Naples: 5.2
+transport . avion . long courrier . heures de vol:
+  suggestions:
+    🚫✈️: 0
+  Copenhage ⇄ Lanzarote: 10.5
+  Copenhage ⇄ New York: 17
+  Copenhage ⇄ Los Angeles: 22.5
+  Copenhage ⇄ Tokyo: 24
+  Copenhage ⇄ Dubaï: 13
+transport . train . km:
+  suggestions:
+    traversée d'une région: 300
+    Copenhage ⇄ Aalborg: 600
+    Copenhage ⇄ Berlin: 900
+    Copenhage ⇄ Paris: 3000
+    💳 grand voyageur: 10000
+    💳 grand voyageur plus ultra: 25000
